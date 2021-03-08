@@ -3,6 +3,8 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const fileUpload = require('express-fileupload')
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database(':memory:')
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));

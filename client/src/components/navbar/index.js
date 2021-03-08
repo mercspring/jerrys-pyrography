@@ -24,7 +24,8 @@ export default function NavBar() {
                     <Nav.Link href="/about">Home</Nav.Link>
                     <Nav.Link href="/gallery">Gallery</Nav.Link>
                     <Nav.Link href="/contact">Contact</Nav.Link>
-                    <Nav.Link className="insta-icon" href="https://www.instagram.com/jerryspyrography/">|     <img src="/insta_icon.svg" alt="Instagram" ></img></Nav.Link>
+                    <Nav.Link href="/admin">Admin</Nav.Link>
+                    {/* <Nav.Link className="insta-icon" href="https://www.instagram.com/jerryspyrography/">|     <img src="/insta_icon.svg" alt="Instagram" ></img></Nav.Link> */}
                 </Nav>
             </Navbar>
 
