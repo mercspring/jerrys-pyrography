@@ -1,0 +1,11 @@
+hr{
+    margin: .5rem 0px !important;
+}
+
+main{
+    min-height: 89vh;
+}
+
+.insta-icon > img{
+height: 2ch;
+}
