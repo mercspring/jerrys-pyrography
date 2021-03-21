@@ -17,7 +17,13 @@ const imageUtils = {
     },
 
     newImage: async function(data){
-        axios.post('/api/new', data);
+        const result = await axios.post('/api/new', data);
+        return result
+    },
+
+    test: async function(){
+        const data = {data: "data", new: "life"}
+        const result = await axios.post ('./api/old',data);
     }
 
 }

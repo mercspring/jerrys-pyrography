@@ -27,8 +27,13 @@ app.post("/api/new", function(req,res) {
       throw err
     };
     console.log("sucess");
-    res.end()
+    res.send("sucess")
   })
+})
+
+app.post("/api/old", function(req,res) {
+  res.send("it worked")
+  // res.json(req.body)
 })
 
 // Send every other request to the React app
