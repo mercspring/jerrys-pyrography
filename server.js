@@ -17,7 +17,6 @@ if (process.env.NODE_ENV === "production") {
 
 // Define API routes here
 app.post("/api/new", function(req,res) {
-  console.log(req.body);
 
   var dbQuery = "INSERT INTO art (caption, pricing, size, sold, url) VALUES (?,?,?,?,?)";
 
@@ -26,14 +25,36 @@ app.post("/api/new", function(req,res) {
       res.status('404').end();
       throw err
     };
-    console.log("sucess");
+    console.log(result);
     res.send("sucess")
   })
 })
 
-app.post("/api/old", function(req,res) {
-  res.send("it worked")
-  // res.json(req.body)
+app.put("/api/edit", function(req,res) {
+  var dbQuery = "UPDATE art SET caption = ?, pricing = ? size = ?, sold = ?, url = ? WHERE id = ? ";
+
+  connection.query(dbQuery, [req.body.caption, req.body.pricing, req.body.size, req.body.sold, req.body.url], function(err, result){
+    if (err) {
+      res.status('404').end();
+      throw err
+    };
+    console.log(result);
+    res.json(result)
+  })
+})
+
+app.get("/api/art", function(req,res) {
+  var dbQuery = "SELECT * FROM art";
+
+  connection.query(dbQuery, function(err, result){
+    if (err) {
+      res.status('404').end();
+      throw err
+    };
+    console.log("sucess");
+    res.json(result)
+  })
+
 })
 
 // Send every other request to the React app
