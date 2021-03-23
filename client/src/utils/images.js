@@ -21,9 +21,9 @@ const imageUtils = {
         return result
     },
 
-    test: async function(){
-        const data = {data: "data", new: "life"}
-        const result = await axios.post ('./api/old',data);
+    getImages: async function(){
+        const result = await axios.get ('/api/art');
+        return result
     }
 
 }
