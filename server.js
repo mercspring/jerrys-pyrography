@@ -31,9 +31,9 @@ app.post("/api/new", function(req,res) {
 })
 
 app.put("/api/edit", function(req,res) {
-  var dbQuery = "UPDATE art SET caption = ?, pricing = ? size = ?, sold = ?, url = ? WHERE id = ? ";
+  var dbQuery = "UPDATE art SET caption = ?, pricing = ?, size = ?, sold = ?, url = ? WHERE id = ? ";
 
-  connection.query(dbQuery, [req.body.caption, req.body.pricing, req.body.size, req.body.sold, req.body.url], function(err, result){
+  connection.query(dbQuery, [req.body.caption, req.body.pricing, req.body.size, req.body.sold, req.body.url, req.body.id], function(err, result){
     if (err) {
       res.status('404').end();
       throw err

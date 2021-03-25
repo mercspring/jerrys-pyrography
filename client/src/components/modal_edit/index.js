@@ -5,14 +5,14 @@ import Form from 'react-bootstrap/Form';
 import imageUtils from '../../utils/images.js';
 import FormFileInput from 'react-bootstrap/esm/FormFileInput';
 
-export default function ModalAdd(props) {
+export default function ModalEdit(props) {
 
     //Form Control Staes
-    const [caption, setCaption] = useState("")
-    const [price, setPrice] = useState("")
-    const [size, setSize] = useState("")
-    const [url, setUrl] = useState("")
-    const [sold, setSold] = useState(false)
+    const [caption, setCaption] = useState(props.caption)
+    const [price, setPrice] = useState(props.price)
+    const [size, setSize] = useState(props.size)
+    const [url, setUrl] = useState(props.url)
+    const [sold, setSold] = useState(props.sold)
 
     const onRadioChange = (event) => {
         const clicked = event.target.id
@@ -24,15 +24,15 @@ export default function ModalAdd(props) {
         }
 
     }
-    const upload = (event) => {
+    const edit = (event) => {
         event.preventDefault();
 
         if (document.querySelector('#image-upload').files.length > 0) {
             const { files } = document.querySelector('input[type="file"]');
             imageUtils.upload(files[0]).then(function (result) {
-                console.log(result)
                 setUrl(result.data.url)
                 const data = {
+                    id: props.id,
                     pricing: price,
                     caption,
                     size,
@@ -40,17 +40,41 @@ export default function ModalAdd(props) {
                     sold: sold ? 0 : 1 
                 }
                 console.log(data)
-                imageUtils.newImage(data).then(confirm => {
-                    console.log(confirm);
-                    props.setShow(false);
+                props.setImages(props.images.map(image => {
+                    if(image.id === props.id){
+                        return data
+                    } else {
+                        return image
+                    }
+                }))
+                imageUtils.editImage(data).then(confirm => {
+                    console.log(confirm)
                 })
 
             })
         } else {
-            console.log("Please choose a file to upload")
+            const data = {
+                id: props.id,
+                pricing: price,
+                caption,
+                size,
+                url,
+                sold: sold ? 0 : 1
+            }
+            imageUtils.editImage(data).then(confirm => {
+                console.log(confirm)
+                props.setImages(props.images.map(image => {
+                    if(image.id === props.id){
+                        return data
+                    } else {
+                        return image
+                    }
+                }))
+            })
+
         }
     }
-
+   
     return (
         <div>
 
@@ -76,32 +100,31 @@ export default function ModalAdd(props) {
                         <hr />
                         <Form.Group controlId="formCaption">
                             <Form.Label>Caption</Form.Label>
-                            <Form.Control name="caption" placeholder="Please enter a caption" onChange={event => setCaption(event.target.value)} />
+                            <Form.Control value={caption} name="caption" placeholder="Please enter a caption" onChange={event => setCaption(event.target.value)} />
                         </Form.Group>
 
                         <Form.Group controlId="formPricing">
                             <Form.Label>Price of Art Work</Form.Label>
-                            <Form.Control name="pricing" placeholder="Please enter a price for the piece (if it's for sale)" onChange={event => setPrice(event.target.value)} />
+                            <Form.Control value={price} name="pricing" placeholder="Please enter a price for the piece (if it's for sale)" onChange={event => setPrice(event.target.value)} />
                         </Form.Group>
 
                         <Form.Group controlId="formSize">
                             <Form.Label>Size of Piece</Form.Label>
-                            <Form.Control name="size" placeholder="Please enter the dimensions of the piece e.g. 12x12" onChange={event => setSize(event.target.value)} />
+                            <Form.Control value={size} name="size" placeholder="Please enter the dimensions of the piece e.g. 12x12" onChange={event => setSize(event.target.value)} />
                         </Form.Group>
 
                         <Form.Group controlId="formSold">
                             <Form.Label>For Sale</Form.Label>
-                            <Form.Check checked={sold ? false : true} type="radio" label="Yes" name="forSale" id="forSale" onChange={() => setSold(false)} />
-                            <Form.Check checked={sold ? true : false} type="radio" label="No" name="forSale" id="notForSale" onChange={() => setSold(true)} />
+                            <Form.Check checked={sold === 1 ? true : false} type="radio" label="Yes" name="forSale" id="forSale" onChange={() => setSold(false)} />
+                            <Form.Check checked={sold === 1 ? false : true} type="radio" label="No" name="forSale" id="notForSale" onChange={() => setSold(true)} />
                         </Form.Group>
-                        <Button variant="primary" type="submit" onClick={upload}>
-                            Upload
+                        <Button variant="primary" type="submit" onClick={edit}>
+                            Save Changes
                         </Button>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={() => (props.setShow(false))}>Close</Button>
-
                 </Modal.Footer>
             </Modal>
 

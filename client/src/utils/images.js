@@ -24,6 +24,10 @@ const imageUtils = {
     getImages: async function(){
         const result = await axios.get ('/api/art');
         return result
+    },
+    editImage: async function(data){
+        const result = await axios.put('/api/edit', data);
+        return result
     }
 
 }

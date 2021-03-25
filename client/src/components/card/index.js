@@ -1,19 +1,21 @@
-import React from 'react';
+import {React, useState} from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import EditModal from '../modal_edit';
 
 export default function ImageCard(props) {
+    const [show, setShow] = useState(false);
     return (
         <div>
             <Card>
-                <Card.Img variant="top" src="http://dreamicus.com/data/apple/apple-01.jpg" style={{width:"200px"}}/>
+                <Card.Img variant="top" src={props.url} style={{ width: "400px" }} />
                 <Card.Body>
                     <Card.Title>Card title</Card.Title>
                     <Card.Text>
                         {props.caption}
                     </Card.Text>
                     <Card.Text>
-                        For Sale: {props.sold ?  "No" : "Yes"}
+                        For Sale: {props.sold === 1 ? "Yes" : "No"}
                     </Card.Text>
                     <Card.Text>
                         Price: {props.pricing}
@@ -24,10 +26,21 @@ export default function ImageCard(props) {
 
                 </Card.Body>
                 <Card.Footer>
-                
-                    <Button>Edit</Button>
+
+                    <Button onClick={() => setShow(true)}>Edit</Button>
                 </Card.Footer>
             </Card>
+            <EditModal show={show}
+                setShow={setShow}
+                id={props.id}
+                caption={props.caption}
+                sold={props.sold}
+                price={props.pricing}
+                url={props.url}
+                size={props.size}
+                images={props.images}
+                setImages={props.setImages}
+            ></EditModal>
 
         </div>
     )
