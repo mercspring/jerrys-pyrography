@@ -57,6 +57,8 @@ app.get("/api/art", function(req,res) {
 
 })
 
+app.delete("/api/art")
+
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {

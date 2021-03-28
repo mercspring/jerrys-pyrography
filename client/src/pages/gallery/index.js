@@ -11,14 +11,14 @@ export default function Gallery() {
 
     const [pictures, setPictures] = useState(new Array(300).fill("https://picsum.photos/200"));
     useEffect(() => {
-imageUtils.getImages().then((result) => {
+        imageUtils.getImages().then((result) => {
 
-        setPictures(result.data.map(image => {
-            image.src = image.url;
-            return image
-        }))
+            setPictures(result.data.map(image => {
+                image.src = image.url;
+                return image
+            }))
 
-})
+        })
 
     }, [])
 
@@ -56,32 +56,64 @@ imageUtils.getImages().then((result) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const gotoPrevious = () => {
-
+        if (currentImageIndex === 0) {
+            setCurrentIndex(pictures.length - 1);
+            return
+        }
         setCurrentIndex(currentImageIndex - 1)
     };
 
     const gotoNext = () => {
 
+        if (currentImageIndex === pictures.length - 1) {
+            setCurrentIndex(0);
+            return
+        }
         setCurrentIndex(currentImageIndex + 1)
     };
 
     return (
         <main>
-            <Container>
+            <Container fluid>
                 <Row>
                     <Col md={11}>
                         <h1>Gallery</h1>
                         <hr />
                         <Row noGutters={true} >
-                            {pictures.map((image, index) => {
+                            <ul>
+                                {
+                                    pictures.map((image, index) => {
+                                        return (
+                                            <li >
+                                                <img src={image.src} alt={image.caption} onClick={() => { setCurrentIndex(index); setIsOpen(true) }}></img>
+                                                <p>{image.caption}</p>
+                                            </li>
+                                        )
+                                    })
+                                }
+                                <li></li>
+                            </ul>
+                            {/* {pictures.map((image, index) => {
                                 return (<Col className="my-3 justify-content-center" sm={6} md={4} key={index}>
-                                    <img onClick={() => { setCurrentIndex(index); setIsOpen(true) }} style={{maxHeight:"300px", maxWidth:"300px"}} loading="lazy" className="mx-auto d-flex" src={image.url} alt="art"></img>
+                                    <img onClick={() => { setCurrentIndex(index); setIsOpen(true) }} style={{ maxHeight: "300px", maxWidth: "300px" }} loading="lazy" className="mx-auto d-flex" src={image.url} alt="art"></img>
                                 </Col>)
-                            })}
+                            })} */}
                         </Row>
                         <Lightbox
 
-                            renderFooter={() => <p style={{display: "flex"}}>{pictures[currentImageIndex].caption}</p>}
+                            renderFooter={() => <div className="footer-lightbox">
+                                <div>
+                                    <p>
+                                        {pictures[currentImageIndex].caption}
+                                    </p>
+                                    <p>
+                                        Price: {pictures[currentImageIndex].sold === 1 ? pictures[currentImageIndex].pricing : "Not For Sale"}
+                                    </p>
+                                    <p>
+                                        Dimensions: {pictures[currentImageIndex].size}
+                                    </p>
+                                </div>
+                            </div>}
 
                             isOpen={isOpen}
 
@@ -95,7 +127,7 @@ imageUtils.getImages().then((result) => {
 
                             currentIndex={currentImageIndex}
 
-                            style={{display: "flex", alignContent: "center"}}
+                            style={{ display: "flex", justifyContent: "end", background: "grey", }}
 
 
                         />
