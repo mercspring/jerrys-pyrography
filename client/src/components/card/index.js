@@ -1,10 +1,13 @@
-import {React, useState} from 'react';
+import { React, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
 import EditModal from '../modal_edit';
+import imageUtils from '../../utils/images.js'
 
 export default function ImageCard(props) {
     const [show, setShow] = useState(false);
+    const [alert, setAlert] = useState(false);
     return (
         <div>
             <Card>
@@ -28,6 +31,20 @@ export default function ImageCard(props) {
                 <Card.Footer>
 
                     <Button onClick={() => setShow(true)}>Edit</Button>
+                    <Button onClick={() => setAlert(true)}> Delete</Button>
+                   {alert ? <Alert style ={{width: "20rem"}} variant="danger" onClose={() => setAlert(false)} dismissible>
+                        <p>
+                            Are you sure you want to Delete this image? This can not be undone.
+                        </p>
+                        <Button onClick={() => setAlert(false)}>No</Button>
+                        <Button onClick={() => {
+                            imageUtils.deleteImage(props.id);
+                            setAlert(false);
+                            props.setImages(props.images.filter((image) => {
+                                return image.id != props.id
+                            }))
+                        }}>Yes</Button>
+                    </Alert> : ""}
                 </Card.Footer>
             </Card>
             <EditModal show={show}
@@ -41,6 +58,7 @@ export default function ImageCard(props) {
                 images={props.images}
                 setImages={props.setImages}
             ></EditModal>
+
 
         </div>
     )

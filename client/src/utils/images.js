@@ -28,6 +28,10 @@ const imageUtils = {
     editImage: async function(data){
         const result = await axios.put('/api/edit', data);
         return result
+    }, 
+    deleteImage: async function(id){
+        const result = await axios.delete('/api/art/' + id);
+        return result
     }
 
 }

@@ -57,7 +57,19 @@ app.get("/api/art", function(req,res) {
 
 })
 
-app.delete("/api/art")
+app.delete("/api/art/:id", function(req,res) {
+  var dbQuery = "DELETE FROM art WHERE ID = ?";
+
+  connection.query(dbQuery, [req.params.id], function(err, result){
+    if (err) {
+      res.status('404').end();
+      throw err
+    };
+    console.log("sucess");
+    res.json(result)
+  })
+
+})
 
 // Send every other request to the React app
 // Define any API routes before this runs

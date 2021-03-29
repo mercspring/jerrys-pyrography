@@ -10,7 +10,9 @@ main{
 height: 2ch;
 }
 
-
+Button{
+    margin: 2px;
+}
 
 ul {
   display: flex;
