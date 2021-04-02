@@ -2,6 +2,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+//reactbootstrap dependencies
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 //Pages
 import About from "./pages/about";
 import Gallery from "./pages/gallery";
@@ -10,6 +15,10 @@ import Admin from "./pages/admin";
 
 //Navbar
 import NavBar from './components/navbar'
+
+//Heading
+import Heading from './components/heading'
+
 
 //Footer
 import Footer from './components/footer'
@@ -23,22 +32,37 @@ function App() {
 
   return (
     <Router>
-      <NavBar></NavBar>
-      <Switch>
-        <Route exact path={["/", "/about"]}>
-          <About></About>
-        </Route>
-        <Route exact path={["/gallery"]}>
-          <Gallery></Gallery>
-        </Route>
-        <Route exact path={["/contact"]}>
-          <Contact></Contact>
-        </Route>
-        <Route exact path={["/admin"]}>
-          <Admin></Admin>
-        </Route>
-      </Switch>
-      <Footer></Footer>
+      <Container>
+        <Row style={{marginTop: "10vh"}}>
+          <Col md={1}></Col>
+          <Col md={10}>
+            <Heading></Heading>
+            <NavBar></NavBar>
+          </Col>
+          <Col md={1}></Col>
+        </Row>
+        <Row>
+          <Col md={1}></Col>
+          <Col md={10}>
+            <Switch>
+              <Route exact path={["/", "/about"]}>
+                <About></About>
+              </Route>
+              <Route exact path={["/gallery"]}>
+                <Gallery></Gallery>
+              </Route>
+              <Route exact path={["/contact"]}>
+                <Contact></Contact>
+              </Route>
+              <Route exact path={["/admin"]}>
+                <Admin></Admin>
+              </Route>
+            </Switch>
+          </Col>
+          <Col md={1}></Col>
+        </Row>
+        <Footer></Footer>
+      </Container>
     </Router>
 
   );

@@ -8,7 +8,7 @@ import Nav from 'react-bootstrap/Nav';
 export default function NavBar() {
     return (
             <Navbar bg="light">
-                <Navbar.Brand href="/about" className="mr-auto">
+                {/* <Navbar.Brand href="/about" className="mr-auto">
                     <img
                         src="/jerrys_icon.jpg"
                         width="30"
@@ -19,7 +19,7 @@ export default function NavBar() {
                     />
 
                     Jerry's Pyrography
-                </Navbar.Brand>
+                </Navbar.Brand> */}
                 <Nav>
                     <Nav.Link href="/about">Home</Nav.Link>
                     <Nav.Link href="/gallery">Gallery</Nav.Link>

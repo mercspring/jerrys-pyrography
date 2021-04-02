@@ -23,35 +23,6 @@ export default function Gallery() {
     }, [])
 
 
-    // const images = [{
-    //     src: "/images/IMG_0466.jpeg",
-    //     alt: "art"
-    // },{
-    //     src: "/images/IMG_0556.jpeg",
-    //     alt: "art"
-    // },{
-    //     src: "/images/IMG_0720.jpeg",
-    //     alt: "art"
-    // },{
-    //     src: "/images/IMG_0972.jpeg",
-    //     alt: "art"
-    // },{
-    //     src: "/images/IMG_0984.jpeg",
-    //     alt: "art"
-    // },{
-    //     src: "/images/IMG_2385.jpeg",
-    //     alt: "art"
-    // },{
-    //     src: "/images/IMG_2633.jpeg",
-    //     alt: "art"
-    // },{
-    //     src: "/images/IMG_2666.jpeg",
-    //     alt: "art"
-    // },{
-    //     src: "/images/IMG_2918.jpeg",
-    //     alt: "art"
-    // }
-    // ]
     const [currentImageIndex, setCurrentIndex] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -86,7 +57,6 @@ export default function Gallery() {
                                         return (
                                             <li >
                                                 <img src={image.src} alt={image.caption} onClick={() => { setCurrentIndex(index); setIsOpen(true) }}></img>
-                                                <p>{image.caption}</p>
                                             </li>
                                         )
                                     })
