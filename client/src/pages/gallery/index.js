@@ -47,7 +47,7 @@ export default function Gallery() {
         <main>
             <Container fluid>
                 <Row>
-                    <Col md={11}>
+                    <Col>
                         <h1>Gallery</h1>
                         <hr />
                         <Row noGutters={true} >
@@ -55,7 +55,7 @@ export default function Gallery() {
                                 {
                                     pictures.map((image, index) => {
                                         return (
-                                            <li >
+                                            <li>
                                                 <img src={image.src} alt={image.caption} onClick={() => { setCurrentIndex(index); setIsOpen(true) }}></img>
                                             </li>
                                         )
@@ -63,11 +63,7 @@ export default function Gallery() {
                                 }
                                 <li></li>
                             </ul>
-                            {/* {pictures.map((image, index) => {
-                                return (<Col className="my-3 justify-content-center" sm={6} md={4} key={index}>
-                                    <img onClick={() => { setCurrentIndex(index); setIsOpen(true) }} style={{ maxHeight: "300px", maxWidth: "300px" }} loading="lazy" className="mx-auto d-flex" src={image.url} alt="art"></img>
-                                </Col>)
-                            })} */}
+  
                         </Row>
                         <Lightbox
 

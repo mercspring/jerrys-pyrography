@@ -1,12 +1,21 @@
 hr{
     margin: .5rem 0px !important;
 }
+.navigation{
+  border-top: black solid 5px;
+  border-bottom: black solid 5px;
+  background-color: blueviolet;
+}
+
+.nav-link{
+  color: red;
+}
 
 .heading{
   text-align: center;
 }
 
-.about > h1{
+.about > h1, .contact > h1{
   font-size: 17pt;
   display: inline-block;
 }
@@ -15,7 +24,7 @@ hr{
   float: right;
 }
 
-.about {
+.about, .contact{
   margin-top: 2rem;
 }
 
@@ -38,7 +47,7 @@ ul {
 }
 
 li {
-  height: 40vh;
+  height: 20vh;
   flex-grow: 1;
   margin: 3px;
 }
@@ -52,9 +61,10 @@ li > img {
   min-width: 100%;
   object-fit: cover;
   vertical-align: bottom;
-  max-width:300px;
+  /* max-width:300px; */
 
 }
+
 
 .footer-lightbox{
     background-color: white;

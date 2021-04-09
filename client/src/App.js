@@ -33,7 +33,7 @@ function App() {
   return (
     <Router>
       <Container>
-        <Row style={{marginTop: "10vh"}}>
+        <Row>
           <Col md={1}></Col>
           <Col md={10}>
             <Heading></Heading>

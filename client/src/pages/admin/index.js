@@ -16,12 +16,13 @@ export default function Admin() {
             console.log("images:",result.data)
             setImages(result.data)
         })
-    }, [])
+    }, [show])
 
     return (
         <div className="admin">
-            Admin Page
-            <Button onClick={() => (setShow(true))}> Show Modal</Button>
+            <hr/>
+            <Button onClick={() => (setShow(true))}> Add New Art Photo</Button>
+            <hr/>
             <CardDeck>
                 {images ? images.map((image,index) => {
                     console.log(image);

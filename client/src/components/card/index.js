@@ -10,8 +10,8 @@ export default function ImageCard(props) {
     const [alert, setAlert] = useState(false);
     return (
         <div>
-            <Card>
-                <Card.Img variant="top" src={props.url} style={{ width: "400px" }} />
+            <Card as="myCard">
+                <Card.Img variant="top" src={props.url} style={{ width: "13vw", minWidth:"100%"}} />
                 <Card.Body>
                     <Card.Title>Card title</Card.Title>
                     <Card.Text>
