@@ -5,6 +5,7 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import AddModal from '../../components/modal_add'
 import ImageCard from '../../components/card'
 import imageUtils from '../../utils/images.js';
+import AboutEdit from '../../components/AboutEdit'
 
 export default function Admin() {
 
@@ -38,6 +39,7 @@ export default function Admin() {
                         setImages={setImages}
                     ></ImageCard>)}) : <p>Images go here, upload some</p>}
             </CardDeck>
+            <AboutEdit about="This is the about section"></AboutEdit>
             <AddModal show={show} setShow={setShow}></AddModal>
 
         </div>

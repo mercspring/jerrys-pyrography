@@ -2,9 +2,21 @@ hr{
     margin: .5rem 0px !important;
 }
 .navigation{
-  border-top: black solid 5px;
-  border-bottom: black solid 5px;
-  background-color: blueviolet;
+  border-top: white solid 5px;
+  border-bottom: white solid 5px;
+  /* background-color: blueviolet; */
+}
+
+body{
+  background-color: #3d4146 !important;
+}
+
+h1, h3, p {
+color: white;
+}
+
+h2 {
+  color: rgb(var(--color_24));
 }
 
 .nav-link{

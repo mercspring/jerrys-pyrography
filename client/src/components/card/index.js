@@ -13,7 +13,6 @@ export default function ImageCard(props) {
             <Card as="myCard">
                 <Card.Img variant="top" src={props.url} style={{ width: "13vw", minWidth:"100%"}} />
                 <Card.Body>
-                    <Card.Title>Card title</Card.Title>
                     <Card.Text>
                         {props.caption}
                     </Card.Text>

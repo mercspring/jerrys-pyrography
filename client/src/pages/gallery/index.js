@@ -48,7 +48,7 @@ export default function Gallery() {
             <Container fluid>
                 <Row>
                     <Col>
-                        <h1>Gallery</h1>
+                        <h2>Gallery</h2>
                         <hr />
                         <Row noGutters={true} >
                             <ul>
