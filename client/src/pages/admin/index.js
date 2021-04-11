@@ -11,12 +11,18 @@ export default function Admin() {
 
     const [show, setShow] = useState(false);
     const [images, setImages] = useState([]);
+    const [about, setAbout] = useState([]);
 
     useEffect(() => {
         imageUtils.getImages().then((result) => {
             console.log("images:",result.data)
             setImages(result.data)
         })
+        imageUtils.getAbout().then((result) => {
+            console.log("about", result.data[0].about)
+            setAbout(result.data[0].about)
+        })
+
     }, [show])
 
     return (
@@ -39,7 +45,7 @@ export default function Admin() {
                         setImages={setImages}
                     ></ImageCard>)}) : <p>Images go here, upload some</p>}
             </CardDeck>
-            <AboutEdit about="This is the about section"></AboutEdit>
+            <AboutEdit about={about} setAbout={setAbout}></AboutEdit>
             <AddModal show={show} setShow={setShow}></AddModal>
 
         </div>

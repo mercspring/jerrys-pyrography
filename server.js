@@ -16,6 +16,19 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+app.get("/api/about", function(req,res) {
+
+  var dbQuery = "SELECT about FROM users WHERE  id = 1";
+
+  connection.query(dbQuery, function(err, result){
+    if(err){
+      res.status('404').end();
+      throw(err);
+    };
+    res.status(200).send(result);
+  })
+
+})
 app.post("/api/new", function(req,res) {
 
   var dbQuery = "INSERT INTO art (caption, pricing, size, sold, url) VALUES (?,?,?,?,?)";

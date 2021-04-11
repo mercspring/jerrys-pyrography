@@ -32,6 +32,10 @@ const imageUtils = {
     deleteImage: async function(id){
         const result = await axios.delete('/api/art/' + id);
         return result
+    },
+    getAbout: async function(id){
+        const result = await axios.get('api/about')
+        return result
     }
 
 }
