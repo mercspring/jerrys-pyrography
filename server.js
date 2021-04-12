@@ -16,6 +16,18 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+app.put("/api/about", function(req,res) {
+  var dbQuery = "UPDATE users SET about = ? WHERE id = 1";
+
+  connection.query(dbQuery, [req.body.about], function(err, result){
+    if (err) {
+      res.status('404').end();
+      throw err
+    };
+    console.log(result);
+    res.json(result)
+  })
+})
 app.get("/api/about", function(req,res) {
 
   var dbQuery = "SELECT about FROM users WHERE  id = 1";

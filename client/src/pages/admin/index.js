@@ -13,13 +13,13 @@ export default function Admin() {
     const [images, setImages] = useState([]);
     const [about, setAbout] = useState([]);
 
+
+
     useEffect(() => {
         imageUtils.getImages().then((result) => {
-            console.log("images:",result.data)
             setImages(result.data)
         })
         imageUtils.getAbout().then((result) => {
-            console.log("about", result.data[0].about)
             setAbout(result.data[0].about)
         })
 
@@ -32,7 +32,6 @@ export default function Admin() {
             <hr/>
             <CardDeck>
                 {images ? images.map((image,index) => {
-                    console.log(image);
                     return (<ImageCard
                         id={image.id}
                         key={index}

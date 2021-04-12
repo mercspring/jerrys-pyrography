@@ -55,7 +55,7 @@ export default function Gallery() {
                                 {
                                     pictures.map((image, index) => {
                                         return (
-                                            <li>
+                                            <li key={index}>
                                                 <img src={image.src} alt={image.caption} onClick={() => { setCurrentIndex(index); setIsOpen(true) }}></img>
                                             </li>
                                         )

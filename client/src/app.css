@@ -15,8 +15,16 @@ body{
   background-color: #3d4146 !important;
 }
 
-h1, h3, p {
+h1, h3 {
 color: white;
+}
+
+.about > p{
+  color: white;
+}
+
+.about > h2 {
+  color: darkred;
 }
 
 h2 {

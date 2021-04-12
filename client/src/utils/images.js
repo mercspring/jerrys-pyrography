@@ -34,7 +34,12 @@ const imageUtils = {
         return result
     },
     getAbout: async function(id){
-        const result = await axios.get('api/about')
+        const result = await axios.get('/api/about')
+        return result
+    }, 
+    updateAbout: async function(data){
+       console.log(data) 
+        const result = await axios.put('/api/about', data)
         return result
     }
 
