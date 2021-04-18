@@ -41,7 +41,15 @@ const imageUtils = {
        console.log(data) 
         const result = await axios.put('/api/about', data)
         return result
-    }
+    },
+    updateContact: async function(data){
+        const result = await axios.put('/api/contact', data)
+        return result
+    },
+    getContact: async function(id){
+        const result = await axios.get('/api/contact')
+        return result
+    }, 
 
 }
 

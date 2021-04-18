@@ -3,7 +3,7 @@ import imageUtils from '../../utils/images.js';
 
 export default function AboutEdit(props) {
     const [makeChange, setMakeChange] = useState(true);
-    const [buffer, setBuffer] = useState(props.about);
+    const [buffer, setBuffer] = useState("");
 
     useEffect(function () {
         setBuffer(props.about)

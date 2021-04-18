@@ -16,10 +16,22 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
-app.put("/api/about", function(req,res) {
-  var dbQuery = "UPDATE users SET about = ? WHERE id = 1";
+app.put("/api/contact", function(req,res) {
+  var dbQuery = "UPDATE users SET phone = ?, email = ? WHERE id = 1";
 
-  connection.query(dbQuery, [req.body.about], function(err, result){
+  connection.query(dbQuery, [ req.body.phone, req.body.email], function(err, result){
+    if (err) {
+      res.status('404').end();
+      throw err
+    };
+    console.log(result);
+    res.json(result)
+  })
+})
+app.put("/api/about", function(req,res) {
+  var dbQuery = "UPDATE users SET about = ?WHERE id = 1";
+
+  connection.query(dbQuery, [ req.body.about], function(err, result){
     if (err) {
       res.status('404').end();
       throw err
@@ -31,6 +43,19 @@ app.put("/api/about", function(req,res) {
 app.get("/api/about", function(req,res) {
 
   var dbQuery = "SELECT about FROM users WHERE  id = 1";
+
+  connection.query(dbQuery, function(err, result){
+    if(err){
+      res.status('404').end();
+      throw(err);
+    };
+    res.status(200).send(result);
+  })
+
+})
+app.get("/api/contact", function(req,res) {
+
+  var dbQuery = "SELECT phone, email FROM users WHERE  id = 1";
 
   connection.query(dbQuery, function(err, result){
     if(err){
