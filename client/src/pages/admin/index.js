@@ -28,7 +28,9 @@ export default function Admin() {
     return (
         <div className="admin">
             <hr/>
+            <h2>Add a Photo</h2>
             <Button onClick={() => (setShow(true))}> Add New Art Photo</Button>
+            <h2>Edit a Photo</h2>
             <hr/>
             <CardDeck>
                 {images ? images.map((image,index) => {
@@ -44,6 +46,8 @@ export default function Admin() {
                         setImages={setImages}
                     ></ImageCard>)}) : <p>Images go here, upload some</p>}
             </CardDeck>
+            <h2>Edit About</h2>
+            <hr/>
             <AboutEdit about={about} setAbout={setAbout}></AboutEdit>
             <AddModal show={show} setShow={setShow}></AddModal>
 

@@ -6,33 +6,36 @@ hr{
     margin: .5rem 0px !important;
 }
 .navigation{
-  border-top: white solid 5px;
-  border-bottom: white solid 5px;
-  /* background-color: blueviolet; */
+  border-top: #300D20 solid 5px;
+  border-bottom: #300D20 solid 5px;
+  background-color: #D1C8E1;
 }
 
 body{
-  background-color: #3d4146 !important;
+  background-color: #c3c3e6 !important;
 }
 
-h1, h3 {
-color: white;
+h1  {
+color: #300D20;
+font-size: 17pt;
+}
+
+h2, h3{
+  color: #300d20
 }
 
 .about > p{
-  color: white;
+  color: #;
 }
 
 .about > h2 {
-  color: darkred;
+  color: #;
 }
 
-h2 {
-  color: rgb(var(--color_24));
-}
+
 
 .nav-link{
-  color: lightblue;
+  color: #422C4E;
 }
 
 .heading{
