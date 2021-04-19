@@ -34,7 +34,7 @@ export default function Admin() {
         <div className="admin">
             <hr/>
             <h2>Add a Photo</h2>
-            <Button onClick={() => (setShow(true))}> Add New Art Photo</Button>
+            <button onClick={() => (setShow(true))}> Add New Art Photo</button>
             <h2>Edit a Photo</h2>
             <hr/>
             <CardDeck>
