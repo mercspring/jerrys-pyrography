@@ -29,20 +29,20 @@ export default function ImageCard(props) {
                 </Card.Body>
                 <Card.Footer>
 
-                    <Button onClick={() => setShow(true)}>Edit</Button>
-                    <Button onClick={() => setAlert(true)}> Delete</Button>
+                    <button id="edit-button" onClick={() => setShow(true)}>Edit</button>
+                    <button id="delete-button" onClick={() => setAlert(true)}> Delete</button>
                    {alert ? <Alert style ={{width: "20rem"}} variant="danger" onClose={() => setAlert(false)} dismissible>
                         <p>
                             Are you sure you want to Delete this image? This can not be undone.
                         </p>
-                        <Button onClick={() => setAlert(false)}>No</Button>
-                        <Button onClick={() => {
+                        <button onClick={() => setAlert(false)}>No</button>
+                        <button onClick={() => {
                             imageUtils.deleteImage(props.id);
                             setAlert(false);
                             props.setImages(props.images.filter((image) => {
                                 return image.id != props.id
                             }))
-                        }}>Yes</Button>
+                        }}>Yes</button>
                     </Alert> : ""}
                 </Card.Footer>
             </Card>

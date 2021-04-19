@@ -20,8 +20,6 @@ export default function ContactEdit(props) {
     }
     return (
         <div className="contact-edit">
-            <h2>Edit Contact</h2>
-            <hr></hr>
             <div>
                 <label for="email">Email:</label>
                 <input disabled={makeChange} id="email" type='text' name="email" value={emailBuffer} onChange={e => {setEmailBuffer(e.target.value)}}></input>

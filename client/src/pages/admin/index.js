@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
 import CardDeck from 'react-bootstrap/CardDeck';
 import AddModal from '../../components/modal_add'
 import ImageCard from '../../components/card'
@@ -33,7 +32,7 @@ export default function Admin() {
     return (
         <div className="admin">
             <hr/>
-            <h2>Add a Photo</h2>
+            <h2 className="add-photo-heading">Add a Photo</h2>
             <button onClick={() => (setShow(true))}> Add New Art Photo</button>
             <h2>Edit a Photo</h2>
             <hr/>
@@ -54,6 +53,8 @@ export default function Admin() {
             <h2>Edit About</h2>
             <hr/>
             <AboutEdit about={about} setAbout={setAbout}></AboutEdit>
+            <h2>Edit Contact</h2>
+            <hr/>
             <ContactEdit phone={contact.phone} email={contact.email} setContact={setContact}></ContactEdit>
             <AddModal show={show} setShow={setShow}></AddModal>
 

@@ -3,6 +3,15 @@
 
 }
 
+.admin > h2 {
+  margin-top: 2rem;
+}
+
+#edit-button, #delete-button{
+  margin: 0px 5px;
+}
+
+
 .card-body, .card-footer{
   background: #F4F2F8 !important;
 }
