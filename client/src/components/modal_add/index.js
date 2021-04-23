@@ -40,7 +40,7 @@ export default function ModalAdd(props) {
                     sold: sold ? 0 : 1 
                 }
                 console.log(data)
-                imageUtils.newImage(data).then(confirm => {
+                imageUtils.newImage(data, props.token).then(confirm => {
                     console.log(confirm);
                     props.setShow(false);
                 })

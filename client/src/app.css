@@ -4,7 +4,7 @@
 }
 
 .admin > h2 {
-  margin-top: 2rem;
+  margin-top: 2ssem;
 }
 
 #edit-button, #delete-button{
@@ -33,26 +33,27 @@ h1  {
 color: #300D20;
 }
 
+
+
 h2, h3{
   color: #300d20
 }
 
 .about > p{
-  color: #;
 }
 
 .about > h2 {
-  color: #;
+  font-family: 'Cinzel', serif;
 }
-
-
 
 .nav-link{
   color: #422C4E;
+  font-family: 'Cinzel', serif;
 }
 
 .heading{
   text-align: center;
+  font-family: 'Cinzel', serif;
 }
 
 .about > h1, .contact > h1{
@@ -62,6 +63,7 @@ h2, h3{
 
 .about > img{
   float: right;
+  margin: 1rem;
 }
 
 .about, .contact{

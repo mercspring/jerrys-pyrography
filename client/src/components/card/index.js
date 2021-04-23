@@ -10,7 +10,7 @@ export default function ImageCard(props) {
     const [alert, setAlert] = useState(false);
     return (
         <div>
-            <Card as="myCard">
+            <Card as="myCard" className="mb-3">
                 <Card.Img variant="top" src={props.url} style={{ width: "13vw", minWidth:"100%"}} />
                 <Card.Body>
                     <Card.Text>

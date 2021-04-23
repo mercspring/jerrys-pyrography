@@ -1,5 +1,11 @@
 import axios from 'axios';
 
+function checkForToken(){
+
+   
+
+}
+
 const imageUtils = {
     upload: async function (file) {
         const formData = new FormData();
@@ -16,8 +22,8 @@ const imageUtils = {
 
     },
 
-    newImage: async function(data){
-        const result = await axios.post('/api/new', data);
+    newImage: async function(data, token){
+        const result = await axios.post('/api/new', data, { headers: { Authorization : `Bearer ${token}`}});
         return result
     },
 
@@ -25,31 +31,35 @@ const imageUtils = {
         const result = await axios.get ('/api/art');
         return result
     },
-    editImage: async function(data){
-        const result = await axios.put('/api/edit', data);
+    editImage: async function(data, token){
+        const result = await axios.put('/api/edit', data, { headers: { Authorization : `Bearer ${token}`}});
         return result
     }, 
-    deleteImage: async function(id){
-        const result = await axios.delete('/api/art/' + id);
+    deleteImage: async function(id, token){
+        const result = await axios.delete('/api/art/' + id, {}, { headers: { Authorization : `Bearer ${token}`}});
         return result
     },
     getAbout: async function(id){
         const result = await axios.get('/api/about')
         return result
     }, 
-    updateAbout: async function(data){
+    updateAbout: async function(data, token){
        console.log(data) 
-        const result = await axios.put('/api/about', data)
+        const result = await axios.put('/api/about', data, { headers: { Authorization : `Bearer ${token}`}})
         return result
     },
-    updateContact: async function(data){
-        const result = await axios.put('/api/contact', data)
+    updateContact: async function(data, token){
+        const result = await axios.put('/api/contact', data, { headers: { Authorization : `Bearer ${token}`}})
         return result
     },
     getContact: async function(id){
         const result = await axios.get('/api/contact')
         return result
-    }, 
+    },
+    signin: async function(signinInfo){
+        const result = await axios.post('/signin', signinInfo)
+        return result
+    } 
 
 }
 

@@ -14,7 +14,7 @@ export default function ContactEdit(props) {
     }, [props.email, props.phone])
 
     function updateContact(){
-        imageUtils.updateContact({ phone: phoneBuffer, email: emailBuffer }).then((result) => {
+        imageUtils.updateContact({ phone: phoneBuffer, email: emailBuffer }, props.token).then((result) => {
             console.log("about", result.data)
         })
     }

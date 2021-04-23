@@ -47,7 +47,7 @@ export default function ModalEdit(props) {
                         return image
                     }
                 }))
-                imageUtils.editImage(data).then(confirm => {
+                imageUtils.editImage(data, props.token).then(confirm => {
                     console.log(confirm)
                 })
 
