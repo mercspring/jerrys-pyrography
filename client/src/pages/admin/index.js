@@ -6,6 +6,7 @@ import ImageCard from '../../components/card'
 import imageUtils from '../../utils/images.js';
 import AboutEdit from '../../components/AboutEdit'
 import Signin from '../../components/Signin'
+import PasswordEdit from '../../components/PasswordEdit'
 import ContactEdit from '../../components/ContactEdit'
 
 export default function Admin() {
@@ -68,6 +69,9 @@ export default function Admin() {
                         <h2>Edit Contact</h2>
                         <hr />
                         <ContactEdit token={token} phone={contact.phone} email={contact.email} setContact={setContact}></ContactEdit>
+                        <h2>Set a New Password</h2>
+                        <hr />
+                        <PasswordEdit></PasswordEdit>
                         <AddModal show={show} setShow={setShow} token={token}></AddModal>
                     </div>
 
