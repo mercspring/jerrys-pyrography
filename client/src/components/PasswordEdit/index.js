@@ -4,10 +4,14 @@ import imageUtils from '../../utils/images.js';
 export default function PasswordEdit() {
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [passwordChanged, setPasswordChanged] = useState(false);
     function submit(){
         if(newPassword === confirmPassword && newPassword.length >= 8){
             console.log("passwords match")
             imageUtils.setPassword(newPassword).then(results => {
+                setNewPassword("");
+                setConfirmPassword("");
+                setPasswordChanged(true);
                 console.log(results)
             })
         } else {
@@ -27,6 +31,7 @@ export default function PasswordEdit() {
                 <label for="confirm-pasword">Confirm New Password</label>
                 <input id="confirm-password" type='text' name="confirm-password" value={confirmPassword} onChange={e => {setConfirmPassword(e.target.value)}}></input>
             </div>
+            {passwordChanged ? <p>Password Suessfully Changed</p> : <p></p>}
             <button onClick={submit}>Change Password</button>
         </div>
     )
