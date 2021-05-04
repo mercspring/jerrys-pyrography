@@ -59,6 +59,10 @@ const imageUtils = {
     signin: async function(signinInfo){
         const result = await axios.post('/signin', signinInfo)
         return result
+    },
+    setPassword: async function(newPassword){
+        const result = await axios.post('/api/password', {password: newPassword})
+        return result
     } 
 
 }
