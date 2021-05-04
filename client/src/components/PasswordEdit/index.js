@@ -6,6 +6,7 @@ export default function PasswordEdit() {
     const [confirmPassword, setConfirmPassword] = useState("");
     return (
         <div>
+            <p>Type the password twice to confirm </p> <p>Passwords match: {newPassword === confirmPassword && newPassword.length >= 1 ? "✅" : "❌"}</p>
              <div>
                 <label for="new-password">New Password:</label>
                 <input id="new-password" type='text' name="new-password" value={newPassword} onChange={e => {setNewPassword(e.target.value)}}></input>
@@ -14,7 +15,6 @@ export default function PasswordEdit() {
                 <label for="confirm-pasword">Confirm New Password</label>
                 <input id="confirm-password" type='text' name="confirm-password" value={confirmPassword} onChange={e => {setConfirmPassword(e.target.value)}}></input>
             </div>
-            
         </div>
     )
 }
