@@ -115,8 +115,8 @@ export default function ModalEdit(props) {
 
                         <Form.Group controlId="formSold">
                             <Form.Label>For Sale</Form.Label>
-                            <Form.Check checked={sold === 1 ? true : false} type="radio" label="Yes" name="forSale" id="forSale" onChange={() => setSold(false)} />
-                            <Form.Check checked={sold === 1 ? false : true} type="radio" label="No" name="forSale" id="notForSale" onChange={() => setSold(true)} />
+                            <Form.Check checked={sold ? false : true} type="radio" label="Yes" name="forSale" id="forSale" onChange={() => setSold(false)} />
+                            <Form.Check checked={sold ? true : false} type="radio" label="No" name="forSale" id="notForSale" onChange={() => setSold(true)} />
                         </Form.Group>
                         <Button variant="primary" type="submit" onClick={edit}>
                             Save Changes
