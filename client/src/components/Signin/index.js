@@ -22,7 +22,7 @@ export default function Signin(props) {
             <input name="username" onChange={(e) => setUsername(e.target.value)} value={username}></input>
 
             <label for="password" >Password</label>
-            <input name="password" onChange={(e) => setPassword(e.target.value)} value={password}></input>
+            <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password}></input>
 
            <button onClick={() => {signin()}}>Sign In</button> 
         </div>
