@@ -20,7 +20,8 @@ export default function About() {
                     <Col>
                         <div className='about'>
                             <h2>About Jerry White</h2>
-                            <img src="https://via.placeholder.com/150" alt="headshot"></img>
+                            {/* <img src="https://via.placeholder.com/150" alt="headshot"></img> */}
+                            <img src="/images/croped_headshot_scaled.jpg" alt="headshot" width="250"></img>
                            {about.map((line,index) => <p key={index}>{line}</p>)}
                         </div>
                     </Col>

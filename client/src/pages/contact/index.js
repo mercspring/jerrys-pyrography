@@ -23,6 +23,11 @@ export default function Contact(props) {
             subject: subject,
             email: email,
             message: message
+        }).then(results => {
+            console.log(results);
+            setSubject("");
+            setEmail("");
+            setMessage("");
         })
 
     }
