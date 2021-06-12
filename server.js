@@ -2,8 +2,10 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const path = require("path");
 const jwt = require("jsonwebtoken");
+const nodemailer = require('nodemailer');
 const PORT = process.env.PORT || 3001;
 const app = express();
+require('dotenv').config();
 const connection = require("./config/connection")
 
 
@@ -33,6 +35,43 @@ const checkAuthStatus = request => {
   });
   return loggedInUser;
 }
+
+app.post('/contact', (req, res) => {
+  // Instantiate the SMTP server
+  const smtpTrans = nodemailer.createTransport({
+    // host: 'smtp.gmail.com',
+    service: 'Gmail',
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS
+    },
+    logger: true,
+    tls: {
+      // do not fail on invalid certs
+      rejectUnauthorized: false
+  }
+  })
+
+  // Specify what the email will look like
+  const mailOpts = {
+    from: 'Your sender info here', // This is ignored by Gmail
+    to: process.env.GMAIL_USER,
+    subject: `${req.body.subject}`,
+    text: ` New email from:${req.body.email} who says \n ${req.body.message}`
+  }
+
+  // Attempt to send the email
+  smtpTrans.sendMail(mailOpts, (error, response) => {
+    if (error) {
+      res.status(422).send('contact-failure') // Show a page indicating failure
+    }
+    else {
+      res.status(200).send('contact-success') // Show a page indicating success
+    }
+  })
+})
 
 app.put("/api/contact", function (req, res) {
   var dbQuery = "UPDATE users SET phone = ?, email = ? WHERE id = 1";

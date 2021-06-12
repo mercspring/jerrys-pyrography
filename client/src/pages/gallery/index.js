@@ -74,6 +74,7 @@ export default function Gallery() {
                                     </p>
                                     <p>
                                         Price: {pictures[currentImageIndex].sold === 1 ? pictures[currentImageIndex].pricing : "Not For Sale"}
+                                        <a href="/contact">Make an offer</a>
                                     </p>
                                     <p>
                                         Dimensions: {pictures[currentImageIndex].size}

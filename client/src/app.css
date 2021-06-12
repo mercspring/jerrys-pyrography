@@ -1,3 +1,17 @@
+.contact-form button{
+  margin-top: 1rem;
+}
+.insta-heading{
+  margin-top: 2rem;
+}
+form.contact-form span{
+  display: block;
+  margin: 5px 0px;
+
+}
+#email, #subject, #message{
+  width: 100%;
+}
 .about-edit > textarea {
   width: 100%;
 

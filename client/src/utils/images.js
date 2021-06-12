@@ -63,6 +63,10 @@ const imageUtils = {
     setPassword: async function(newPassword){
         const result = await axios.post('/api/password', {password: newPassword})
         return result
+    },
+    sendEmail: async function(emailInfo){
+        const result = await axios.post('/contact', emailInfo);
+        return result
     } 
 
 }
