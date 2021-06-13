@@ -9,13 +9,28 @@ export default function Contact(props) {
     const [subject, setSubject] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("")
-
+    const query = useQuery();
     function useQuery() {
-        return useLocation().search
+        // return useLocation().search
+        const location = useLocation()
+        const searchTerms = new URLSearchParams(location.search)
+        return {
+            imageUrl: searchTerms.get("imageurl"),
+            caption: searchTerms.get("caption"),
+            price: searchTerms.get("price"),
+        }
     }
 
-    console.log(useQuery())
+
     useEffect(function () {
+        console.log(query.wow);       
+        if(query.imageUrl != null){
+            setSubject(`Interested in Buying: ${query.caption}`)
+            setMessage(
+            `Hi Jerry, \nI'm interested in buying this piece of art:\n ${query.imageUrl} \n\nI see that it is listed for ${query.price} and I would be happy to pay ${query.price} for it.\n\nSincerly,
+            `)
+        }
+  
     }, [])
     function onSendButtonClick(event){
         event.preventDefault();

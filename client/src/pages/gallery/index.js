@@ -69,16 +69,19 @@ export default function Gallery() {
 
                             renderFooter={() => <div className="footer-lightbox">
                                 <div>
-                                    <p>
-                                        {pictures[currentImageIndex].caption}
-                                    </p>
-                                    <p>
-                                        Price: {pictures[currentImageIndex].sold === 1 ? pictures[currentImageIndex].pricing : "Not For Sale"}
-                                        <a href="/contact">Make an offer</a>
-                                    </p>
-                                    <p>
+                                    <span>
+                                        {pictures[currentImageIndex].caption} 
+                                    </span>
+                                    <span className="spacer">|</span>
+                                    <span>
+                                         Price: {pictures[currentImageIndex].sold === 1 ? pictures[currentImageIndex].pricing : "Not For Sale"}
+                                    </span>
+                                    <span className="spacer">|</span>
+                                    <span>
                                         Dimensions: {pictures[currentImageIndex].size}
-                                    </p>
+                                    </span>
+                                    <span className="spacer">|</span>
+                                       <a href={`/contact?imageurl=${pictures[currentImageIndex].src}&price=${pictures[currentImageIndex].pricing}&caption=${pictures[currentImageIndex].caption}`}>Inquire about purchasing</a>
                                 </div>
                             </div>}
 
