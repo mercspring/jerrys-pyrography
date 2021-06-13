@@ -12,6 +12,8 @@ import About from "./pages/about";
 import Gallery from "./pages/gallery";
 import Contact from "./pages/contact";
 import Admin from "./pages/admin";
+import Thankyou from "./pages/thankyou"
+import Sorry from "./pages/sorry"
 
 //Navbar
 import NavBar from './components/navbar'
@@ -53,6 +55,12 @@ function App() {
               </Route>
               <Route exact path={["/contact"]}>
                 <Contact></Contact>
+              </Route>
+              <Route exact path={["/contact/thankyou"]}>
+                <Thankyou></Thankyou>
+              </Route>
+              <Route exact path={["/contact/sorry"]}>
+                <Sorry></Sorry>
               </Route>
               <Route exact path={["/admin"]}>
                 <Admin></Admin>
