@@ -72,16 +72,16 @@ export default function Gallery() {
                                     <span>
                                         {pictures[currentImageIndex].caption} 
                                     </span>
-                                    <span className="spacer">|</span>
+                                    <span className="spacer"> {pictures[currentImageIndex].caption ? "|" : ""}</span>
                                     <span>
-                                         Price: {pictures[currentImageIndex].sold === 1 ? pictures[currentImageIndex].pricing : "Not For Sale"}
+                                         {pictures[currentImageIndex].sold && (pictures[currentImageIndex].pricing) ? "Price: " + pictures[currentImageIndex].pricing : "Not For Sale"}
                                     </span>
                                     <span className="spacer">|</span>
                                     <span>
                                         Dimensions: {pictures[currentImageIndex].size}
                                     </span>
-                                    <span className="spacer">|</span>
-                                       <a href={`/contact?imageurl=${pictures[currentImageIndex].src}&price=${pictures[currentImageIndex].pricing}&caption=${pictures[currentImageIndex].caption}`}>Inquire about purchasing</a>
+                                    {pictures[currentImageIndex].sold && (pictures[currentImageIndex].pricing) ?  <span className="spacer">|</span> : ""}
+                                       { pictures[currentImageIndex].sold  && (pictures[currentImageIndex].pricing) ? <a href={`/contact?imageurl=${pictures[currentImageIndex].src}&price=${pictures[currentImageIndex].pricing}&caption=${pictures[currentImageIndex].caption}`}>Inquire about purchasing</a> : ""}
                                 </div>
                             </div>}
 
