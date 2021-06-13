@@ -13,6 +13,7 @@ export default function ModalAdd(props) {
     const [size, setSize] = useState("")
     const [url, setUrl] = useState("")
     const [sold, setSold] = useState(false)
+    const [disableUploadButton, setDisableUploadButton] = useState(false);
 
     const onRadioChange = (event) => {
         const clicked = event.target.id
@@ -25,6 +26,7 @@ export default function ModalAdd(props) {
 
     }
     const upload = (event) => {
+        setDisableUploadButton(true);
         event.preventDefault();
 
         if (document.querySelector('#image-upload').files.length > 0) {
@@ -42,6 +44,7 @@ export default function ModalAdd(props) {
                 console.log(data)
                 imageUtils.newImage(data, props.token).then(confirm => {
                     console.log(confirm);
+                    setDisableUploadButton(false)
                     props.setShow(false);
                 })
 
@@ -94,7 +97,7 @@ export default function ModalAdd(props) {
                             <Form.Check checked={sold ? false : true} type="radio" label="Yes" name="forSale" id="forSale" onChange={() => setSold(false)} />
                             <Form.Check checked={sold ? true : false} type="radio" label="No" name="forSale" id="notForSale" onChange={() => setSold(true)} />
                         </Form.Group>
-                        <Button variant="primary" type="submit" onClick={upload}>
+                        <Button variant="primary" type="submit" disabled={disableUploadButton} onClick={upload}>
                             Upload
                         </Button>
                     </Form>
