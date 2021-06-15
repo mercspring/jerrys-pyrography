@@ -30,7 +30,7 @@ export default function Contact(props) {
         if(query.imageUrl != null && query.price != null){
             setSubject(`Interested in Buying: ${query.caption}`)
             setMessage(
-            `Hi Jerry, \nI'm interested in buying this piece of art:\n\n${query.imageUrl} \n\nI see that it is listed for ${query.price} and I would be happy to pay ${query.price} for it.\n\nsincerely,`)
+            `Hi Jerry, \nI'm interested in buying this piece of art:\n\n${query.imageUrl} \n\nI see that it is listed for ${query.price} and I would be happy to pay ${query.price} for it.\n\nSincerely,`)
         }
   
     }, [])
