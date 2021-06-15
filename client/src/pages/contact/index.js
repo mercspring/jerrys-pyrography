@@ -30,14 +30,13 @@ export default function Contact(props) {
         if(query.imageUrl != null && query.price != null){
             setSubject(`Interested in Buying: ${query.caption}`)
             setMessage(
-            `Hi Jerry, \nI'm interested in buying this piece of art:\n\n${query.imageUrl} \n\nI see that it is listed for ${query.price} and I would be happy to pay ${query.price} for it.\n\nSincerly,
-            `)
+            `Hi Jerry, \nI'm interested in buying this piece of art:\n\n${query.imageUrl} \n\nI see that it is listed for ${query.price} and I would be happy to pay ${query.price} for it.\n\nsincerely,`)
         }
   
     }, [])
     function onSendButtonClick(event){
-        setdisableSendButton(true);
         event.preventDefault();
+        setdisableSendButton(true);
         imageUtils.sendEmail({
             subject: subject,
             email: email,
@@ -78,7 +77,7 @@ export default function Contact(props) {
                                 </div>
                                     <button id="send-button" onClick={onSendButtonClick} disabled={(email && subject && message) || disableSendButton ? false : true}>Send Message</button> 
                             </form>
-                            <h1 className="insta-heading">Connect with me on <a href="https://www.instagram.com/jerryspyrography/">Instagram</a></h1>
+                            {/* <h1 className="insta-heading">Connect with me on <a href="https://www.instagram.com/jerryspyrography/">Instagram</a></h1> */}
                             {/* <p>Instagram: <a href="https://www.instagram.com/jerryspyrography/">https://www.instagram.com/jerryspyrography/</a></p> */}
                         </div>
                     </Col>

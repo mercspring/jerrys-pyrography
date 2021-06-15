@@ -1,3 +1,11 @@
+#insta-icon{
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: auto 1rem;
+}
+.insta-link{
+  align-self: flex-end;
+}
 
 .spacer{
   padding: 0px 2rem;
