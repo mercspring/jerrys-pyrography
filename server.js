@@ -59,7 +59,7 @@ app.post('/contact', (req, res) => {
     from: 'Your sender info here', // This is ignored by Gmail
     to: process.env.GMAIL_USER,
     subject: `${req.body.subject}`,
-    text: ` New email from:${req.body.email} who says \n ${req.body.message}`
+    text: ` New email from: ${req.body.email} who says \n ${req.body.message}`
   }
 
   // Attempt to send the email
