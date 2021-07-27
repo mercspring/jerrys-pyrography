@@ -40,7 +40,7 @@ app.post('/contact', (req, res) => {
   // Instantiate the SMTP server
   const smtpTrans = nodemailer.createTransport({
     // host: 'smtp.gmail.com',
-    service: 'Gmail',
+    service: 'AOL',
     port: 587,
     secure: false,
     auth: {
@@ -56,7 +56,7 @@ app.post('/contact', (req, res) => {
 
   // Specify what the email will look like
   const mailOpts = {
-    from: 'Your sender info here', // This is ignored by Gmail
+    from: process.env.GMAIL_USER, // This is ignored by Gmail
     to: process.env.GMAIL_USER,
     subject: `${req.body.subject}`,
     text: ` New email from: ${req.body.email} who says \n ${req.body.message}`
