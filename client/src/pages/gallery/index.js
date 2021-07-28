@@ -56,33 +56,45 @@ export default function Gallery() {
                                 {
                                     pictures.map((image, index) => {
                                         return (
-                                            <li key={index}>
-                                                <img src={image.src} alt={image.caption} onClick={() => { setCurrentIndex(index); setIsOpen(true) }}></img>
+                                            <li className="gallery-box" key={index}>
+
+                                                <img className={image.sold ? "gallery-img" : "gallery-img-nfs"} src={image.src} alt={image.caption} onClick={() => { setCurrentIndex(index); setIsOpen(true) }}></img>
+
+                                                {
+                                                    image.sold ?
+                                                        <div className="gallery-text-container">
+                                                            <span className="gallery-text-label">Pricing</span>
+                                                            <span className="gallery-text-label"> - </span>
+                                                            <span className="gallery-text-price">{image.pricing}</span>
+                                                        </div>
+                                                        :
+                                                        <span style={{ display: "none" }}></span>
+                                                }
                                             </li>
                                         )
                                     })
                                 }
                                 <li></li>
                             </ul>
-  
+
                         </Row>
                         <Lightbox
 
                             renderFooter={() => <div className="footer-lightbox">
                                 <div>
                                     <span>
-                                        {pictures[currentImageIndex].caption} 
+                                        {pictures[currentImageIndex].caption}
                                     </span>
                                     <span className="spacer"> {pictures[currentImageIndex].caption ? "|" : ""}</span>
                                     <span>
-                                         {pictures[currentImageIndex].sold && (pictures[currentImageIndex].pricing) ? "Price: " + pictures[currentImageIndex].pricing : "Not For Sale"}
+                                        {pictures[currentImageIndex].sold && (pictures[currentImageIndex].pricing) ? "Price: " + pictures[currentImageIndex].pricing : "Not For Sale"}
                                     </span>
                                     <span className="spacer">|</span>
                                     <span>
                                         Dimensions: {pictures[currentImageIndex].size}
                                     </span>
-                                    {pictures[currentImageIndex].sold && (pictures[currentImageIndex].pricing) ?  <span className="spacer">|</span> : ""}
-                                       { pictures[currentImageIndex].sold  && (pictures[currentImageIndex].pricing) ? <a href={`/contact?imageurl=${pictures[currentImageIndex].src}&price=${pictures[currentImageIndex].pricing}&caption=${pictures[currentImageIndex].caption}`}>Inquire about purchasing</a> : ""}
+                                    {pictures[currentImageIndex].sold && (pictures[currentImageIndex].pricing) ? <span className="spacer">|</span> : ""}
+                                    {pictures[currentImageIndex].sold && (pictures[currentImageIndex].pricing) ? <a href={`/contact?imageurl=${pictures[currentImageIndex].src}&price=${pictures[currentImageIndex].pricing}&caption=${pictures[currentImageIndex].caption}`}>Inquire about purchasing</a> : ""}
                                 </div>
                             </div>}
 
@@ -97,19 +109,23 @@ export default function Gallery() {
                             images={pictures}
 
                             currentIndex={currentImageIndex}
-                            renderPrevButton={() => {return (<button onClick={gotoPrevious} style={{position: "fixed", left:0, fontSize:"30pt", border:"none", zIndex:"1", backgroundColor:"transparent"}}>
-                            ❮ 	
-                            </button>)}}
-                            renderNextButton={() => {return (<button onClick={gotoNext} style={{position: "fixed", right:0, fontSize:"30pt", zIndex:"1", backgroundColor:"transparent",border: "none"}}>
-                            ❯  	
-                            </button>)}}
+                            renderPrevButton={() => {
+                                return (<button onClick={gotoPrevious} style={{ position: "fixed", left: 0, fontSize: "30pt", border: "none", zIndex: "1", backgroundColor: "transparent" }}>
+                                    ❮
+                                </button>)
+                            }}
+                            renderNextButton={() => {
+                                return (<button onClick={gotoNext} style={{ position: "fixed", right: 0, fontSize: "30pt", zIndex: "1", backgroundColor: "transparent", border: "none" }}>
+                                    ❯
+                                </button>)
+                            }}
 
                             renderHeader={() => {
                                 return (
-                                    <button 
-                                    style={{position: "fixed", right: 10, top: 0, fontSize:"25pt", zIndex:"1", border:"none", backgroundColor:"transparent", lineHeight:"1.75rem"}}
-                                    onClick={() => setIsOpen(false)}>
-                                       x
+                                    <button
+                                        style={{ position: "fixed", right: 10, top: 0, fontSize: "25pt", zIndex: "1", border: "none", backgroundColor: "transparent", lineHeight: "1.75rem" }}
+                                        onClick={() => setIsOpen(false)}>
+                                        x
                                     </button>
                                 )
                             }}
