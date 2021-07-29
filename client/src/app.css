@@ -214,4 +214,7 @@ li:last-child {
     max-height: 75vh;
     min-width: 0;
   }
+  .about > img {
+    float: none;
+  }
 }

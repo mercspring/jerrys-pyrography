@@ -65,7 +65,7 @@ export default function Gallery() {
                                                         <div className="gallery-text-container">
                                                             <span className="gallery-text-label">Pricing</span>
                                                             <span className="gallery-text-label"> - </span>
-                                                            <a className="gallery-text-price" href={`/contact?imageurl=${pictures[currentImageIndex].src}&price=${pictures[currentImageIndex].pricing}&caption=${pictures[currentImageIndex].caption}`}>{image.pricing}</a>
+                                                            <a className="gallery-text-price" href={`/contact?imageurl=${image.src}&price=${image.pricing}&caption=${image.caption}`}>{image.pricing}</a>
                                                         </div>
                                                         :
                                                         <span style={{ display: "none" }}></span>

@@ -16,7 +16,7 @@ export default function Signin(props) {
     }
 
     return (
-        <div className="signin">
+        <form className="signin" onSubmit={e => {e.preventDefault(); signin()}}>
 
             <label for="username">User Name</label>
             <input name="username" onChange={(e) => setUsername(e.target.value)} value={username}></input>
@@ -24,7 +24,7 @@ export default function Signin(props) {
             <label for="password" >Password</label>
             <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password}></input>
 
-           <button onClick={() => {signin()}}>Sign In</button> 
-        </div>
+           <button >Sign In</button> 
+        </form>
     )
 }

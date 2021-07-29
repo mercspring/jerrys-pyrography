@@ -50,6 +50,7 @@ export default function ModalEdit(props) {
                 imageUtils.editImage(data, props.token).then(confirm => {
                     console.log(confirm)
                 })
+                    props.setShow(false);
 
             })
         } else {
@@ -71,6 +72,7 @@ export default function ModalEdit(props) {
                     }
                 }))
             })
+            props.setShow(false);
 
         }
     }
