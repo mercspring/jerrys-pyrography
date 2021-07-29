@@ -118,9 +118,9 @@ ul {
 }
 
 li {
-  height: 25vh;
+  height: 42vh;
   flex-grow: 1;
-  margin: 3px;
+  margin: 5px;
 }
 
 li:last-child {
