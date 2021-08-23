@@ -49,7 +49,7 @@ export default function Gallery() {
             <Container fluid>
                 <Row>
                     <Col>
-                        <h2>Gallery</h2>
+                        <h2 className="gallery-heading">Gallery</h2>
                         <hr />
                         <Row noGutters={true} >
                             <ul>

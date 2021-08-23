@@ -22,7 +22,9 @@ export default function Admin() {
 
     }, [])
 
-
+function changeImageQuality(){
+    imageUtils.updateQuality(token);
+}
 
     useEffect(() => {
         imageUtils.getImages().then((result) => {
@@ -72,6 +74,9 @@ export default function Admin() {
                         <h2>Set a New Password</h2>
                         <hr />
                         <PasswordEdit></PasswordEdit>
+                        <div>
+                            <button onClick={changeImageQuality}>Update Image Quality</button>
+                        </div>
                         <AddModal show={show} setShow={setShow} token={token}></AddModal>
                     </div>
 

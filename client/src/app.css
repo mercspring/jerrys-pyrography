@@ -184,6 +184,14 @@ li:last-child {
   float: left;
 }
 
+.gallery-heading::after{
+  content:" - Click on the Picture for More Information";
+  font-size: 12pt;
+  opacity: 60%;
+  vertical-align: middle;
+
+}
+
 
 
 @media (max-aspect-ratio: 1/1) {

@@ -67,7 +67,22 @@ const imageUtils = {
     sendEmail: async function(emailInfo){
         const result = await axios.post('/contact', emailInfo);
         return result
-    } 
+    },
+    updateQuality: async (token) => {
+        // Only used once to mass update the image quality
+        const images = await imageUtils.getImages();
+        console.log(images);
+
+        images.data.forEach(async image => {
+            image.url = image.url.replace("upload/","upload/q_30/");
+            const res = await imageUtils.editImage(image, token);
+            console.log(res);
+
+        });
+        
+
+    
+    }
 
 }
 

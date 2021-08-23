@@ -38,7 +38,7 @@ export default function ModalAdd(props) {
                     pricing: price,
                     caption,
                     size,
-                    url: result.data.url,
+                    url: result.data.secure_url,
                     sold: sold ? 0 : 1 
                 }
                 console.log(data)
