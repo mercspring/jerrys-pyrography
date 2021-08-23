@@ -185,9 +185,8 @@ li:last-child {
 }
 
 .gallery-heading::after{
-  content:" - Click on the Picture for More Information";
+  content:"  -  Click on the Picture for More Information";
   font-size: 12pt;
-  opacity: 60%;
   vertical-align: middle;
 
 }

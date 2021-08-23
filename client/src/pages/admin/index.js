@@ -74,9 +74,9 @@ function changeImageQuality(){
                         <h2>Set a New Password</h2>
                         <hr />
                         <PasswordEdit></PasswordEdit>
-                        <div>
+                        {/* <div>
                             <button onClick={changeImageQuality}>Update Image Quality</button>
-                        </div>
+                        </div> */}
                         <AddModal show={show} setShow={setShow} token={token}></AddModal>
                     </div>
 
