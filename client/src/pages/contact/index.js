@@ -81,6 +81,9 @@ export default function Contact(props) {
                             {/* <p>Instagram: <a href="https://www.instagram.com/jerryspyrography/">https://www.instagram.com/jerryspyrography/</a></p> */}
                         </div>
                     </Col>
+                <Col sm={4} style={{marginTop: "6.4rem", marginBottom:"1rem"}}>
+                        <img src="/images/blue.jpeg" alt="fox theatre" style={{width: "100%"}}></img>
+                </Col>
                 </Row>
                 {thankYou ? <Redirect to="/contact/thankyou"></Redirect> : ''}
                 {sorry ? <Redirect to="/contact/sorry"></Redirect> : ""}
